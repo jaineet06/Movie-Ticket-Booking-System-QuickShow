@@ -12,20 +12,16 @@ const port = 3000
 await connectDb()
 
 //Middlewares
-app.use(express.json())
 app.use(cors())
 app.use(clerkMiddleware())
-
-
+app.use('/api/inngest', serve({ client: inngest, functions}))
+app.use(express.json())
 
 
 //API routes
 app.get('/', (req, res) => {
     res.send("Api is working")
 })
-
-app.use('/api/inngest', serve({ client: inngest, functions}))
-
 
 
 app.listen(port, 
