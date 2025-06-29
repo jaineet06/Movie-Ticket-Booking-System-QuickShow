@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { MenuIcon, SearchIcon, Ticket, XIcon } from "lucide-react";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
+import { motion } from "motion/react";
+import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,8 +15,15 @@ const Navbar = () => {
 
   const navigate = useNavigate();
 
+  const { favMovies } = useContext(AppContext);
+
   return (
-    <div className="fixed top-0 left-0 z-50 w-full flex items-center justify-between px-6 md:px-16 lg:px-36 py-5">
+    <motion.div
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="fixed top-0 left-0 z-50 w-full flex items-center justify-between px-6 md:px-16 lg:px-36 py-5"
+    >
       <Link to="/" className="max-md:flex-1">
         <img src={assets.logo} alt="" className="w-36 h-auto" />
       </Link>
@@ -34,7 +43,8 @@ const Navbar = () => {
 
         <Link
           onClick={() => {
-            scrollTo(0, 0); setIsOpen(false);
+            scrollTo(0, 0);
+            setIsOpen(false);
           }}
           to="/"
         >
@@ -42,7 +52,8 @@ const Navbar = () => {
         </Link>
         <Link
           onClick={() => {
-            scrollTo(0, 0); setIsOpen(false);
+            scrollTo(0, 0);
+            setIsOpen(false);
           }}
           to="/movies"
         >
@@ -50,7 +61,8 @@ const Navbar = () => {
         </Link>
         <Link
           onClick={() => {
-            scrollTo(0, 0); setIsOpen(false);
+            scrollTo(0, 0);
+            setIsOpen(false);
           }}
           to="/theaters"
         >
@@ -58,33 +70,44 @@ const Navbar = () => {
         </Link>
         <Link
           onClick={() => {
-            scrollTo(0, 0); setIsOpen(false);
+            scrollTo(0, 0);
+            setIsOpen(false);
           }}
           to="/releases"
         >
           Releases
         </Link>
-        <Link
-          onClick={() => {
-            scrollTo(0, 0); setIsOpen(false);
-          }}
-          to="/favourites"
-        >
-          Favourites
-        </Link>
+        {
+          favMovies.length > 0 && <Link
+            onClick={() => {
+              scrollTo(0, 0);
+              setIsOpen(false);
+            }}
+            to="/favourites"
+          >
+            Favourites
+          </Link>
+        }
       </div>
 
       <div className="flex items-center gap-8">
         <SearchIcon className="max-md:hidden w-6 h-6 cursor-pointer" />
 
         {!user ? (
-          <button onClick={openSignIn} className="px-4 py-1 sm:px-7 sm:py-2 bg-primary hover:bg-primary-dull transition rounded-full font-medium cursor-pointer">
+          <button
+            onClick={openSignIn}
+            className="px-4 py-1 sm:px-7 sm:py-2 bg-primary hover:bg-primary-dull transition rounded-full font-medium cursor-pointer"
+          >
             Login
           </button>
         ) : (
           <UserButton>
             <UserButton.MenuItems>
-              <UserButton.Action label="My Bookings" labelIcon={<Ticket width={15}/>} onClick={() => navigate('/my-bookings')}/>
+              <UserButton.Action
+                label="My Bookings"
+                labelIcon={<Ticket width={15} />}
+                onClick={() => navigate("/my-bookings")}
+              />
             </UserButton.MenuItems>
           </UserButton>
         )}
@@ -94,7 +117,7 @@ const Navbar = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="max-md:ml-4 md:hidden w-8 h-8 cursor-pointer"
       />
-    </div>
+    </motion.div>
   );
 };
 
