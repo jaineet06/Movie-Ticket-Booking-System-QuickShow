@@ -18,11 +18,7 @@ const Navbar = () => {
   const { favMovies } = useContext(AppContext);
 
   return (
-    <motion.div
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      className="fixed top-0 left-0 z-50 w-full flex items-center justify-between px-6 md:px-16 lg:px-36 py-5"
+    <div className="fixed top-0 left-0 z-50 w-full flex items-center justify-between px-6 md:px-16 lg:px-36 py-5"
     >
       <Link to="/" className="max-md:flex-1">
         <img src={assets.logo} alt="" className="w-36 h-auto" />
@@ -117,7 +113,7 @@ const Navbar = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="max-md:ml-4 md:hidden w-8 h-8 cursor-pointer"
       />
-    </motion.div>
+    </div>
   );
 };
 

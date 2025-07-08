@@ -61,10 +61,7 @@ const MovieDetails = () => {
   return show ? (
     <div className="px-6 md:px-16 lg:px-40 pt-30 md:pt-50">
       <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
-        <motion.img
-          initial={{ x: -40, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+        <img
           src={image_base_url + show.movie.poster_path}
           alt="poster"
           className="max-md:mx-auto rounded-xl h-104 max-w-70 object-cover"
@@ -73,10 +70,7 @@ const MovieDetails = () => {
         <div className="relative flex flex-col gap-3">
           <BlurCircle top="-100px" left="-100px" />
 
-          <motion.div
-            initial={{ y: -40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          <div
             className="flex flex-col gap-3"
           >
             <p className="text-primary">ENGLISH</p>
@@ -95,12 +89,9 @@ const MovieDetails = () => {
               {show.movie.genres.map((genre) => genre.name).join(", ")} •{" "}
               {show.movie.release_date.split("-")[0]}
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.6 }}
+          <div
             className="flex items-center flex-wrap gap-4 mt-4"
           >
             <button className="flex items-center gap-2 px-7 py-3 text-sm bg-gray-800 hover:bg-gray-900 transform rounded-md font-medium cursor-pointer active:scale-95">
@@ -116,7 +107,7 @@ const MovieDetails = () => {
             <button onClick={handleFavourites} className="bg-gray-700 p-2.5 rounded-full transition cursor-pointer active:scale-95">
               <Heart className={`w-5 h-5 ${favMovies.find(movie => movie._id === id) ? 'fill-primary text-primary' : ''}`} />
             </button>
-          </motion.div>
+          </div>
         </div>
       </div>
 
