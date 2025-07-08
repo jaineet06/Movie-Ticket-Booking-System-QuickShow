@@ -1,13 +1,10 @@
-import React from "react";
 import { assets } from "../assets/assets";
 import {
   ArrowRight,
-  Calendar1Icon,
   CalendarIcon,
   ClockIcon,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { delay, motion } from "motion/react";
 
 const Hero = () => {
   const nav = useNavigate();

@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { MenuIcon, SearchIcon, Ticket, XIcon } from "lucide-react";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
-import { motion } from "motion/react";
 import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {

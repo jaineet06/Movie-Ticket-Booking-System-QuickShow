@@ -1,13 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { dummyDateTimeData, dummyShowsData } from "../assets/assets.js";
 import BlurCircle from "../components/BlurCircle.jsx";
 import { Heart, PlayCircleIcon, StarIcon } from "lucide-react";
 import timeFormat from "../lib/timeFormat.js";
 import DateSelect from "../components/DateSelect.jsx";
 import MovieCard from "../components/MovieCard.jsx";
 import Loading from "../components/Loading.jsx";
-import { motion } from "motion/react";
 import { AppContext } from "../context/AppContext.jsx";
 import toast from "react-hot-toast";
 

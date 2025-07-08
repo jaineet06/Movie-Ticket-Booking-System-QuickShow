@@ -1,9 +1,8 @@
 import { ArrowRightIcon } from "lucide-react";
-import React, { useContext } from "react";
+import  { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import BlurCircle from "./BlurCircle";
 import MovieCard from "./MovieCard";
-import { delay, motion } from "motion/react";
 import { AppContext } from "../context/AppContext";
 
 const Feature = () => {
