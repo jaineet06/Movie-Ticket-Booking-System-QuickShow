@@ -60,7 +60,7 @@ const Navbar = () => {
             scrollTo(0, 0);
             setIsOpen(false);
           }}
-          to="/theaters"
+          to="/"
         >
           Theaters
         </Link>
@@ -69,7 +69,7 @@ const Navbar = () => {
             scrollTo(0, 0);
             setIsOpen(false);
           }}
-          to="/releases"
+          to="/"
         >
           Releases
         </Link>
