@@ -31,15 +31,11 @@ export const stripeWebHooks = async (req, res) => {
                     paymentLink: ""
                 })
 
-                console.log("Sending Confirmation Email");
                 // Send Confirmation Email
                 await inngest.send({
                     name: 'app/show.booked',
                     data: {bookingId}
                 })
-
-                console.log("Mail sent from stripWebHook fn");
-
 
             }
                 break;
